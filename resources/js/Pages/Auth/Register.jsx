@@ -23,11 +23,19 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="Inscription" />
 
             <form onSubmit={submit}>
+                <div className="mb-6">
+                    <p className="page-kicker">Inscription</p>
+                    <h1 className="mt-2 text-2xl font-semibold text-slate-950">Creer un compte</h1>
+                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                        Renseignez vos informations pour rejoindre l'espace laboratoire.
+                    </p>
+                </div>
+
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Nom" />
 
                     <TextInput
                         id="name"
@@ -61,7 +69,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Mot de passe" />
 
                     <TextInput
                         id="password"
@@ -80,7 +88,7 @@ export default function Register() {
                 <div className="mt-4">
                     <InputLabel
                         htmlFor="password_confirmation"
-                        value="Confirm Password"
+                        value="Confirmation du mot de passe"
                     />
 
                     <TextInput
@@ -102,16 +110,16 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-end">
                     <Link
                         href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="rounded-md text-sm font-medium text-slate-600 underline hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                     >
-                        Already registered?
+                        Deja inscrit ?
                     </Link>
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
+                    <PrimaryButton disabled={processing}>
+                        Creer le compte
                     </PrimaryButton>
                 </div>
             </form>

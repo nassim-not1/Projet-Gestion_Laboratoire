@@ -35,14 +35,15 @@ export default function Show({ equipment, members, statuses }) {
             header={
                 <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                     <div>
-                        <h1 className="text-2xl font-semibold text-slate-950">{equipment.name}</h1>
-                        <p className="text-sm text-slate-500">{equipment.inventory_code} · {equipment.status}</p>
+                        <p className="page-kicker">Equipement</p>
+                        <h1 className="page-title">{equipment.name}</h1>
+                        <p className="page-subtitle">{equipment.inventory_code} - {equipment.status}</p>
                     </div>
-                    <div className="flex gap-2">
-                        <Link href={route('equipments.index')} className="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">Liste</Link>
+                    <div className="flex flex-wrap gap-2">
+                        <Link href={route('equipments.index')} className="btn-secondary">Liste</Link>
                         {canManage && (
                             <>
-                                <Link href={route('equipments.edit', equipment.id)} className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white">Modifier</Link>
+                                <Link href={route('equipments.edit', equipment.id)} className="btn-primary">Modifier</Link>
                                 <ConfirmDeleteButton href={route('equipments.destroy', equipment.id)} />
                             </>
                         )}
@@ -53,7 +54,7 @@ export default function Show({ equipment, members, statuses }) {
             <Head title={equipment.name} />
 
             <div className="grid gap-6 lg:grid-cols-3">
-                <section className="rounded-md border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2">
+                <section className="app-surface p-6 lg:col-span-2">
                     <h2 className="text-lg font-semibold text-slate-950">Details</h2>
                     <dl className="mt-4 grid gap-4 md:grid-cols-2">
                         <Info label="Type" value={equipment.type} />
@@ -64,12 +65,12 @@ export default function Show({ equipment, members, statuses }) {
                     {equipment.description && <p className="mt-5 text-sm leading-6 text-slate-700">{equipment.description}</p>}
                 </section>
 
-                <section className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
+                <section className="app-surface p-6">
                     <h2 className="text-lg font-semibold text-slate-950">Statut</h2>
                     {canManage ? (
                         <form onSubmit={updateStatus} className="mt-4 space-y-4">
                             <SelectInput label="Changer statut" name="status" value={statusForm.data.status} onChange={statusForm.setData} error={statusForm.errors.status} options={statuses} />
-                            <button disabled={statusForm.processing} className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white">
+                            <button disabled={statusForm.processing} className="btn-primary">
                                 Mettre a jour
                             </button>
                         </form>
@@ -78,7 +79,7 @@ export default function Show({ equipment, members, statuses }) {
                     )}
                 </section>
 
-                <section className="rounded-md border border-slate-200 bg-white p-6 shadow-sm lg:col-span-3">
+                <section className="app-surface p-6 lg:col-span-3">
                     <h2 className="text-lg font-semibold text-slate-950">Reservation</h2>
                     <form onSubmit={reserve} className="mt-4 grid gap-4 md:grid-cols-5">
                         <SelectInput label="Membre" name="member_id" value={reservationForm.data.member_id} onChange={reservationForm.setData} error={reservationForm.errors.member_id} options={members} required />
@@ -86,7 +87,7 @@ export default function Show({ equipment, members, statuses }) {
                         <FormInput label="Debut" name="start_time" type="time" value={reservationForm.data.start_time} onChange={reservationForm.setData} error={reservationForm.errors.start_time} required />
                         <FormInput label="Fin" name="end_time" type="time" value={reservationForm.data.end_time} onChange={reservationForm.setData} error={reservationForm.errors.end_time} required />
                         <div className="flex items-end">
-                            <button disabled={reservationForm.processing} className="w-full rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white">
+                            <button disabled={reservationForm.processing} className="btn-primary w-full">
                                 Reserver
                             </button>
                         </div>
@@ -95,7 +96,7 @@ export default function Show({ equipment, members, statuses }) {
                         </div>
                     </form>
 
-                    <div className="mt-6 overflow-hidden rounded-md border border-slate-200">
+                    <div className="mt-6 overflow-x-auto rounded-lg border border-slate-200">
                         <table className="min-w-full divide-y divide-slate-200">
                             <thead className="bg-slate-50">
                                 <tr>

@@ -11,14 +11,15 @@ export default function Show({ project }) {
             header={
                 <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                     <div>
-                        <h1 className="text-2xl font-semibold text-slate-950">{project.title}</h1>
-                        <p className="text-sm text-slate-500">{project.status} · Responsable : {project.responsable?.first_name} {project.responsable?.last_name}</p>
+                        <p className="page-kicker">Projet de recherche</p>
+                        <h1 className="page-title">{project.title}</h1>
+                        <p className="page-subtitle">{project.status} - Responsable : {project.responsable?.first_name} {project.responsable?.last_name}</p>
                     </div>
-                    <div className="flex gap-2">
-                        <Link href={route('research-projects.index')} className="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">Liste</Link>
+                    <div className="flex flex-wrap gap-2">
+                        <Link href={route('research-projects.index')} className="btn-secondary">Liste</Link>
                         {canManage && (
                             <>
-                                <Link href={route('research-projects.edit', project.id)} className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white">Modifier</Link>
+                                <Link href={route('research-projects.edit', project.id)} className="btn-primary">Modifier</Link>
                                 <ConfirmDeleteButton href={route('research-projects.destroy', project.id)} />
                             </>
                         )}
@@ -29,7 +30,7 @@ export default function Show({ project }) {
             <Head title={project.title} />
 
             <div className="grid gap-6 lg:grid-cols-3">
-                <section className="rounded-md border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2">
+                <section className="app-surface p-6 lg:col-span-2">
                     <h2 className="text-lg font-semibold text-slate-950">Description</h2>
                     <p className="mt-3 text-sm leading-6 text-slate-700">{project.description}</p>
                     <dl className="mt-6 grid gap-4 md:grid-cols-2">
@@ -40,11 +41,11 @@ export default function Show({ project }) {
                     </dl>
                 </section>
 
-                <section className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
+                <section className="app-surface p-6">
                     <h2 className="text-lg font-semibold text-slate-950">Equipe</h2>
                     <div className="mt-4 space-y-3">
                         {project.members.map((member) => (
-                            <Link key={member.id} href={route('members.show', member.id)} className="block rounded-md border border-slate-200 p-3 text-sm hover:bg-slate-50">
+                            <Link key={member.id} href={route('members.show', member.id)} className="block rounded-lg border border-slate-200 p-3 text-sm transition hover:border-teal-200 hover:bg-teal-50/40">
                                 <span className="font-medium text-slate-950">{member.first_name} {member.last_name}</span>
                                 <span className="block text-slate-500">{member.grade}</span>
                             </Link>
@@ -52,14 +53,14 @@ export default function Show({ project }) {
                     </div>
                 </section>
 
-                <section className="rounded-md border border-slate-200 bg-white p-6 shadow-sm lg:col-span-3">
+                <section className="app-surface p-6 lg:col-span-3">
                     <h2 className="text-lg font-semibold text-slate-950">Productions liees</h2>
                     <div className="mt-4 grid gap-4 md:grid-cols-2">
                         <div>
                             <h3 className="font-medium text-slate-800">Publications</h3>
                             <div className="mt-3 space-y-2">
                                 {project.publications.map((publication) => (
-                                    <Link key={publication.id} href={route('publications.show', publication.id)} className="block text-sm text-indigo-700 hover:underline">
+                                    <Link key={publication.id} href={route('publications.show', publication.id)} className="block text-sm font-medium text-teal-700 hover:text-teal-900 hover:underline">
                                         {publication.title}
                                     </Link>
                                 ))}
@@ -70,7 +71,7 @@ export default function Show({ project }) {
                             <h3 className="font-medium text-slate-800">Valorisations</h3>
                             <div className="mt-3 space-y-2">
                                 {project.valorisations.map((valorisation) => (
-                                    <Link key={valorisation.id} href={route('valorisations.show', valorisation.id)} className="block text-sm text-indigo-700 hover:underline">
+                                    <Link key={valorisation.id} href={route('valorisations.show', valorisation.id)} className="block text-sm font-medium text-teal-700 hover:text-teal-900 hover:underline">
                                         {valorisation.title}
                                     </Link>
                                 ))}

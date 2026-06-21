@@ -22,9 +22,9 @@ export default function Index({ valorisations, filters, types }) {
         <AuthenticatedLayout header={<Header canManage={canManage} />}>
             <Head title="Valorisation" />
 
-            <form onSubmit={submit} className="mb-6 grid gap-4 rounded-md border border-slate-200 bg-white p-4 md:grid-cols-3">
+            <form onSubmit={submit} className="filter-panel mb-6 grid gap-4 md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end">
                 <div>
-                    <label className="text-sm font-medium text-slate-700">Recherche</label>
+                    <label className="text-sm font-semibold text-slate-700">Recherche</label>
                     <TextInput
                         value={data.search}
                         onChange={(event) => setData('search', event.target.value)}
@@ -33,15 +33,15 @@ export default function Index({ valorisations, filters, types }) {
                     />
                 </div>
                 <SelectInput label="Type" name="type" value={data.type} onChange={setData} options={types} placeholder="Tous les types" />
-                <div className="flex items-end gap-2">
-                    <button className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800">Filtrer</button>
-                    <Link href={route('valorisations.index')} className="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">
+                <div className="flex flex-wrap items-end gap-2">
+                    <button type="submit" className="btn-primary">Filtrer</button>
+                    <Link href={route('valorisations.index')} className="btn-secondary">
                         Reinitialiser
                     </Link>
                 </div>
             </form>
 
-            <div className="overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
+            <div className="table-shell">
                 <table className="min-w-full divide-y divide-slate-200">
                     <thead className="bg-slate-50">
                         <tr>
@@ -54,7 +54,7 @@ export default function Index({ valorisations, filters, types }) {
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                         {valorisations.data.map((valorisation) => (
-                            <tr key={valorisation.id}>
+                            <tr key={valorisation.id} className="transition hover:bg-slate-50/80">
                                 <td className="px-4 py-3">
                                     <p className="font-medium text-slate-950">{valorisation.title}</p>
                                     <p className="text-sm text-slate-500">{valorisation.research_project?.title || 'Sans projet'}</p>
@@ -91,11 +91,12 @@ function Header({ canManage }) {
     return (
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div>
-                <h1 className="text-2xl font-semibold text-slate-950">Valorisation scientifique</h1>
-                <p className="mt-1 text-sm text-slate-500">Brevets, partenariats, evenements, prix et transferts.</p>
+                <p className="page-kicker">Impact</p>
+                <h1 className="page-title">Valorisation scientifique</h1>
+                <p className="page-subtitle">Brevets, partenariats, evenements, prix et transferts.</p>
             </div>
             {canManage && (
-                <Link href={route('valorisations.create')} className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800">
+                <Link href={route('valorisations.create')} className="btn-primary">
                     Ajouter une activite
                 </Link>
             )}

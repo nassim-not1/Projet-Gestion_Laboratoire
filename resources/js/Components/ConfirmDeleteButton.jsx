@@ -11,7 +11,7 @@ export default function ConfirmDeleteButton({ href, label = 'Supprimer', message
         <button
             type="button"
             onClick={handleDelete}
-            className="rounded-md border border-red-200 px-3 py-1.5 text-sm font-medium text-red-700 transition hover:bg-red-50"
+            className="btn-danger min-h-0 px-3 py-1.5"
         >
             {label}
         </button>

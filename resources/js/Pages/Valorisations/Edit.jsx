@@ -22,8 +22,9 @@ export default function Edit({ valorisation, members, projects, types }) {
         <AuthenticatedLayout
             header={
                 <div>
-                    <h1 className="text-2xl font-semibold text-slate-950">Modifier l activite</h1>
-                    <Link href={route('valorisations.show', valorisation.id)} className="mt-2 inline-block text-sm font-medium text-indigo-700">
+                    <p className="page-kicker">Impact</p>
+                    <h1 className="page-title">Modifier l activite</h1>
+                    <Link href={route('valorisations.show', valorisation.id)} className="mt-2 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900">
                         Retour aux details
                     </Link>
                 </div>

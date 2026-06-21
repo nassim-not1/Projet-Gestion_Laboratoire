@@ -22,9 +22,9 @@ export default function Index({ projects, filters, statuses }) {
         <AuthenticatedLayout header={<Header canManage={canManage} />}>
             <Head title="Projets de recherche" />
 
-            <form onSubmit={submit} className="mb-6 grid gap-4 rounded-md border border-slate-200 bg-white p-4 md:grid-cols-3">
+            <form onSubmit={submit} className="filter-panel mb-6 grid gap-4 md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end">
                 <div>
-                    <label className="text-sm font-medium text-slate-700">Recherche</label>
+                    <label className="text-sm font-semibold text-slate-700">Recherche</label>
                     <TextInput
                         value={data.search}
                         onChange={(event) => setData('search', event.target.value)}
@@ -33,15 +33,15 @@ export default function Index({ projects, filters, statuses }) {
                     />
                 </div>
                 <SelectInput label="Statut" name="status" value={data.status} onChange={setData} options={statuses} placeholder="Tous les statuts" />
-                <div className="flex items-end gap-2">
-                    <button className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800">Filtrer</button>
-                    <Link href={route('research-projects.index')} className="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">
+                <div className="flex flex-wrap items-end gap-2">
+                    <button type="submit" className="btn-primary">Filtrer</button>
+                    <Link href={route('research-projects.index')} className="btn-secondary">
                         Reinitialiser
                     </Link>
                 </div>
             </form>
 
-            <div className="overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
+            <div className="table-shell">
                 <table className="min-w-full divide-y divide-slate-200">
                     <thead className="bg-slate-50">
                         <tr>
@@ -54,7 +54,7 @@ export default function Index({ projects, filters, statuses }) {
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                         {projects.data.map((project) => (
-                            <tr key={project.id}>
+                            <tr key={project.id} className="transition hover:bg-slate-50/80">
                                 <td className="px-4 py-3">
                                     <p className="font-medium text-slate-950">{project.title}</p>
                                     <p className="text-sm text-slate-500">{project.start_date?.slice(0, 10)} - {project.end_date?.slice(0, 10) || 'en cours'}</p>
@@ -95,11 +95,12 @@ function Header({ canManage }) {
     return (
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div>
-                <h1 className="text-2xl font-semibold text-slate-950">Projets de recherche</h1>
-                <p className="mt-1 text-sm text-slate-500">Suivi des projets, responsables et equipes.</p>
+                <p className="page-kicker">Recherche</p>
+                <h1 className="page-title">Projets de recherche</h1>
+                <p className="page-subtitle">Suivi des projets, responsables et equipes.</p>
             </div>
             {canManage && (
-                <Link href={route('research-projects.create')} className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800">
+                <Link href={route('research-projects.create')} className="btn-primary">
                     Ajouter un projet
                 </Link>
             )}

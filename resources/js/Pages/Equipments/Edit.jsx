@@ -22,8 +22,9 @@ export default function Edit({ equipment, members, statuses }) {
         <AuthenticatedLayout
             header={
                 <div>
-                    <h1 className="text-2xl font-semibold text-slate-950">Modifier l equipement</h1>
-                    <Link href={route('equipments.show', equipment.id)} className="mt-2 inline-block text-sm font-medium text-indigo-700">
+                    <p className="page-kicker">Inventaire</p>
+                    <h1 className="page-title">Modifier l equipement</h1>
+                    <Link href={route('equipments.show', equipment.id)} className="mt-2 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900">
                         Retour aux details
                     </Link>
                 </div>

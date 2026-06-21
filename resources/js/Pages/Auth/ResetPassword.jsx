@@ -23,9 +23,17 @@ export default function ResetPassword({ token, email }) {
 
     return (
         <GuestLayout>
-            <Head title="Reset Password" />
+            <Head title="Nouveau mot de passe" />
 
             <form onSubmit={submit}>
+                <div className="mb-6">
+                    <p className="page-kicker">Securite</p>
+                    <h1 className="mt-2 text-2xl font-semibold text-slate-950">Choisir un nouveau mot de passe</h1>
+                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                        Confirmez votre email puis saisissez votre nouveau mot de passe.
+                    </p>
+                </div>
+
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -43,7 +51,7 @@ export default function ResetPassword({ token, email }) {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Mot de passe" />
 
                     <TextInput
                         id="password"
@@ -62,7 +70,7 @@ export default function ResetPassword({ token, email }) {
                 <div className="mt-4">
                     <InputLabel
                         htmlFor="password_confirmation"
-                        value="Confirm Password"
+                        value="Confirmation du mot de passe"
                     />
 
                     <TextInput
@@ -83,9 +91,9 @@ export default function ResetPassword({ token, email }) {
                     />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Reset Password
+                <div className="mt-6 flex items-center justify-end">
+                    <PrimaryButton disabled={processing}>
+                        Enregistrer
                     </PrimaryButton>
                 </div>
             </form>

@@ -25,8 +25,9 @@ export default function Edit({ publication, members, projects, types, selectedAu
         <AuthenticatedLayout
             header={
                 <div>
-                    <h1 className="text-2xl font-semibold text-slate-950">Modifier la publication</h1>
-                    <Link href={route('publications.show', publication.id)} className="mt-2 inline-block text-sm font-medium text-indigo-700">
+                    <p className="page-kicker">Production</p>
+                    <h1 className="page-title">Modifier la publication</h1>
+                    <Link href={route('publications.show', publication.id)} className="mt-2 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900">
                         Retour aux details
                     </Link>
                 </div>

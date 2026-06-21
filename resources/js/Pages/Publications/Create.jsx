@@ -49,8 +49,9 @@ export function defaultData(overrides = {}) {
 function Header({ title }) {
     return (
         <div>
-            <h1 className="text-2xl font-semibold text-slate-950">{title}</h1>
-            <Link href={route('publications.index')} className="mt-2 inline-block text-sm font-medium text-indigo-700">
+            <p className="page-kicker">Production</p>
+            <h1 className="page-title">{title}</h1>
+            <Link href={route('publications.index')} className="mt-2 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900">
                 Retour a la liste
             </Link>
         </div>
@@ -59,7 +60,7 @@ function Header({ title }) {
 
 export function PublicationForm({ data, setData, errors, members, projects, types, submit, processing, submitLabel }) {
     return (
-        <form onSubmit={submit} className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
+        <form onSubmit={submit} className="app-surface p-6">
             <div className="grid gap-5 md:grid-cols-2">
                 <FormInput label="Titre" name="title" value={data.title} onChange={setData} error={errors.title} required />
                 <SelectInput label="Type" name="publication_type" value={data.publication_type} onChange={setData} error={errors.publication_type} options={types} required />
@@ -77,10 +78,10 @@ export function PublicationForm({ data, setData, errors, members, projects, type
                 </div>
             </div>
             <div className="mt-6 flex justify-end gap-3">
-                <Link href={route('publications.index')} className="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">
+                <Link href={route('publications.index')} className="btn-secondary">
                     Annuler
                 </Link>
-                <button disabled={processing} className="rounded-md bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800 disabled:opacity-60">
+                <button disabled={processing} className="btn-primary">
                     {submitLabel}
                 </button>
             </div>

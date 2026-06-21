@@ -1,43 +1,64 @@
 import Dropdown from '@/Components/Dropdown';
-import { Link, usePage } from '@inertiajs/react';
+import ThemeToggle from '@/Components/ThemeToggle';
+import { usePage } from '@inertiajs/react';
 
 export default function Navbar({ onMenuClick }) {
     const user = usePage().props.auth.user;
+    const initials = user.name
+        ?.split(' ')
+        .map((part) => part[0])
+        .join('')
+        .slice(0, 2)
+        .toUpperCase();
 
     return (
-        <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
             <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-3">
                     <button
                         type="button"
                         onClick={onMenuClick}
-                        className="rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 lg:hidden"
+                        className="btn-secondary px-3 lg:hidden"
+                        aria-label="Ouvrir le menu"
                     >
-                        Menu
+                        <span className="flex h-4 w-4 flex-col justify-center gap-1">
+                            <span className="h-0.5 rounded-full bg-current" />
+                            <span className="h-0.5 rounded-full bg-current" />
+                            <span className="h-0.5 rounded-full bg-current" />
+                        </span>
                     </button>
                     <div>
                         <p className="text-sm font-semibold text-slate-950">Digitalisation des activites de recherche</p>
-                        <p className="text-xs text-slate-500">MVP academique</p>
+                        <p className="text-xs text-slate-500">Pilotage laboratoire et IA</p>
                     </div>
                 </div>
 
-                <Dropdown>
-                    <Dropdown.Trigger>
-                        <button
-                            type="button"
-                            className="rounded-md border border-slate-200 bg-white px-3 py-2 text-left text-sm transition hover:bg-slate-50"
-                        >
-                            <span className="block font-medium text-slate-900">{user.name}</span>
-                            <span className="block text-xs text-slate-500">{user.role}</span>
-                        </button>
-                    </Dropdown.Trigger>
-                    <Dropdown.Content align="right">
-                        <Dropdown.Link href={route('profile.edit')}>Profil</Dropdown.Link>
-                        <Dropdown.Link href={route('logout')} method="post" as="button">
-                            Deconnexion
-                        </Dropdown.Link>
-                    </Dropdown.Content>
-                </Dropdown>
+                <div className="flex items-center gap-2">
+                    <ThemeToggle />
+
+                    <Dropdown>
+                        <Dropdown.Trigger>
+                            <button
+                                type="button"
+                                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-sm shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+                            >
+                                <span className="flex h-9 w-9 items-center justify-center rounded-md bg-teal-50 text-xs font-bold text-teal-800">
+                                    {initials || 'U'}
+                                </span>
+                                <span className="hidden min-w-0 sm:block">
+                                    <span className="block truncate font-semibold text-slate-900">{user.name}</span>
+                                    <span className="block text-xs text-slate-500">{user.role}</span>
+                                </span>
+                            </button>
+                        </Dropdown.Trigger>
+                        <Dropdown.Content align="right">
+                            <Dropdown.Link href={route('profile.edit')}>Profil</Dropdown.Link>
+                            <Dropdown.Link href={route('logout')} method="post" as="button">
+                                Deconnexion
+                            </Dropdown.Link>
+                        </Dropdown.Content>
+                    </Dropdown>
+                </div>
             </div>
         </header>
     );

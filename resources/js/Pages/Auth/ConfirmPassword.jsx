@@ -20,16 +20,19 @@ export default function ConfirmPassword() {
 
     return (
         <GuestLayout>
-            <Head title="Confirm Password" />
+            <Head title="Confirmation" />
 
-            <div className="mb-4 text-sm text-gray-600">
-                This is a secure area of the application. Please confirm your
-                password before continuing.
+            <div className="mb-6">
+                <p className="page-kicker">Securite</p>
+                <h1 className="mt-2 text-2xl font-semibold text-slate-950">Confirmer votre mot de passe</h1>
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                    Cette zone est protegee. Confirmez votre mot de passe pour continuer.
+                </p>
             </div>
 
             <form onSubmit={submit}>
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                <div>
+                    <InputLabel htmlFor="password" value="Mot de passe" />
 
                     <TextInput
                         id="password"
@@ -44,9 +47,9 @@ export default function ConfirmPassword() {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Confirm
+                <div className="mt-6 flex items-center justify-end">
+                    <PrimaryButton disabled={processing}>
+                        Confirmer
                     </PrimaryButton>
                 </div>
             </form>

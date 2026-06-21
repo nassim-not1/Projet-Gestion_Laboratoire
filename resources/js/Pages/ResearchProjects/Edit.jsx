@@ -24,8 +24,9 @@ export default function Edit({ project, members, statuses, selectedMembers }) {
         <AuthenticatedLayout
             header={
                 <div>
-                    <h1 className="text-2xl font-semibold text-slate-950">Modifier le projet</h1>
-                    <Link href={route('research-projects.show', project.id)} className="mt-2 inline-block text-sm font-medium text-indigo-700">
+                    <p className="page-kicker">Recherche</p>
+                    <h1 className="page-title">Modifier le projet</h1>
+                    <Link href={route('research-projects.show', project.id)} className="mt-2 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900">
                         Retour aux details
                     </Link>
                 </div>

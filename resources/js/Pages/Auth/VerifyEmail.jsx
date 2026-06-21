@@ -13,35 +13,35 @@ export default function VerifyEmail({ status }) {
 
     return (
         <GuestLayout>
-            <Head title="Email Verification" />
+            <Head title="Verification email" />
 
-            <div className="mb-4 text-sm text-gray-600">
-                Thanks for signing up! Before getting started, could you verify
-                your email address by clicking on the link we just emailed to
-                you? If you didn't receive the email, we will gladly send you
-                another.
+            <div className="mb-6">
+                <p className="page-kicker">Verification</p>
+                <h1 className="mt-2 text-2xl font-semibold text-slate-950">Verifier votre adresse email</h1>
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                    Cliquez sur le lien envoye par email pour activer votre compte. Vous pouvez demander un nouvel envoi.
+                </p>
             </div>
 
             {status === 'verification-link-sent' && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    A new verification link has been sent to the email address
-                    you provided during registration.
+                <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+                    Un nouveau lien de verification a ete envoye a votre adresse email.
                 </div>
             )}
 
             <form onSubmit={submit}>
-                <div className="mt-4 flex items-center justify-between">
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <PrimaryButton disabled={processing}>
-                        Resend Verification Email
+                        Renvoyer le lien
                     </PrimaryButton>
 
                     <Link
                         href={route('logout')}
                         method="post"
                         as="button"
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="rounded-md text-sm font-medium text-slate-600 underline hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2"
                     >
-                        Log Out
+                        Deconnexion
                     </Link>
                 </div>
             </form>
