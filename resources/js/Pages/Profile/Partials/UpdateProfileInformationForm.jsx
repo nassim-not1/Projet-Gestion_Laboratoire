@@ -27,11 +27,11 @@ export default function UpdateProfileInformation({
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-semibold text-slate-950">
+                <h2 className="text-lg font-semibold text-slate-950 dark:text-white">
                     Informations du profil
                 </h2>
 
-                <p className="mt-1 text-sm leading-6 text-slate-500">
+                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
                     Mettez a jour le nom et l'adresse email associes a votre compte.
                 </p>
             </header>
@@ -71,7 +71,7 @@ export default function UpdateProfileInformation({
 
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
-                        <p className="mt-2 text-sm text-slate-700">
+                        <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">
                             Votre adresse email n'est pas verifiee.
                             <Link
                                 href={route('verification.send')}
@@ -84,7 +84,7 @@ export default function UpdateProfileInformation({
                         </p>
 
                         {status === 'verification-link-sent' && (
-                            <div className="mt-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+                            <div className="mt-2 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-100">
                                 Un nouveau lien de verification a ete envoye.
                             </div>
                         )}
@@ -101,7 +101,7 @@ export default function UpdateProfileInformation({
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm font-medium text-slate-600">
+                        <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
                             Enregistre.
                         </p>
                     </Transition>

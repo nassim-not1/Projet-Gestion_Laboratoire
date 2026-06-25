@@ -42,8 +42,8 @@ export default function Index({ projects, filters, statuses }) {
             </form>
 
             <div className="table-shell">
-                <table className="min-w-full divide-y divide-slate-200">
-                    <thead className="bg-slate-50">
+                <table className="data-table">
+                    <thead>
                         <tr>
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Projet</th>
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Responsable</th>
@@ -52,9 +52,9 @@ export default function Index({ projects, filters, statuses }) {
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody>
                         {projects.data.map((project) => (
-                            <tr key={project.id} className="transition hover:bg-slate-50/80">
+                            <tr key={project.id} className="transition hover:bg-slate-50/80 dark:hover:bg-slate-800/60">
                                 <td className="px-4 py-3">
                                     <p className="font-medium text-slate-950">{project.title}</p>
                                     <p className="text-sm text-slate-500">{project.start_date?.slice(0, 10)} - {project.end_date?.slice(0, 10) || 'en cours'}</p>

@@ -49,7 +49,7 @@ export default function Show({ member }) {
                     <h2 className="text-lg font-semibold text-slate-950">Projets</h2>
                     <div className="mt-4 space-y-3">
                         {member.projects.map((project) => (
-                            <Link key={project.id} href={route('research-projects.show', project.id)} className="block rounded-lg border border-slate-200 p-4 transition hover:border-teal-200 hover:bg-teal-50/40">
+                            <Link key={project.id} href={route('research-projects.show', project.id)} className="block rounded-lg border border-slate-200 p-4 transition hover:border-teal-200 hover:bg-teal-50/40 dark:border-slate-800 dark:hover:border-teal-800 dark:hover:bg-teal-950/30">
                                 <p className="font-medium text-slate-950">{project.title}</p>
                                 <p className="text-sm text-slate-500">{project.status}</p>
                             </Link>
@@ -60,7 +60,7 @@ export default function Show({ member }) {
                     <h2 className="mt-8 text-lg font-semibold text-slate-950">Publications</h2>
                     <div className="mt-4 space-y-3">
                         {member.publications.map((publication) => (
-                            <Link key={publication.id} href={route('publications.show', publication.id)} className="block rounded-lg border border-slate-200 p-4 transition hover:border-teal-200 hover:bg-teal-50/40">
+                            <Link key={publication.id} href={route('publications.show', publication.id)} className="block rounded-lg border border-slate-200 p-4 transition hover:border-teal-200 hover:bg-teal-50/40 dark:border-slate-800 dark:hover:border-teal-800 dark:hover:bg-teal-950/30">
                                 <p className="font-medium text-slate-950">{publication.title}</p>
                                 <p className="text-sm text-slate-500">{publication.publication_year} - {publication.publication_type}</p>
                             </Link>

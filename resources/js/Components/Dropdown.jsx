@@ -38,7 +38,7 @@ const Trigger = ({ children }) => {
 const Content = ({
     align = 'right',
     width = '48',
-    contentClasses = 'py-1 bg-white',
+    contentClasses = 'py-1 bg-white dark:bg-slate-900',
     children,
 }) => {
     const { open, setOpen } = useContext(DropDownContext);
@@ -69,12 +69,12 @@ const Content = ({
                 leaveTo="opacity-0 scale-95"
             >
                 <div
-                    className={`absolute z-50 mt-2 rounded-lg shadow-lg shadow-slate-200/80 ${alignmentClasses} ${widthClasses}`}
+                    className={`absolute z-50 mt-2 rounded-lg shadow-lg shadow-slate-200/80 dark:shadow-black/30 ${alignmentClasses} ${widthClasses}`}
                     onClick={() => setOpen(false)}
                 >
                     <div
                         className={
-                            `rounded-lg border border-slate-200 ring-1 ring-black ring-opacity-5 ` +
+                            `rounded-lg border border-slate-200 ring-1 ring-black ring-opacity-5 dark:border-slate-700 ` +
                             contentClasses
                         }
                     >
@@ -91,7 +91,7 @@ const DropdownLink = ({ className = '', children, ...props }) => {
         <Link
             {...props}
             className={
-                'block w-full px-4 py-2.5 text-start text-sm leading-5 text-slate-700 transition duration-150 ease-in-out hover:bg-slate-50 hover:text-slate-950 focus:bg-slate-50 focus:outline-none ' +
+                'block w-full px-4 py-2.5 text-start text-sm leading-5 text-slate-700 transition duration-150 ease-in-out hover:bg-slate-50 hover:text-slate-950 focus:bg-slate-50 focus:outline-none dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:bg-slate-800 ' +
                 className
             }
         >

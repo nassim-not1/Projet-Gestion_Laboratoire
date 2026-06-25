@@ -145,11 +145,4 @@ docs/
 - Akkouh Iliass : frontend React/Inertia, UI, dashboard
 - El Gourari Nassim : base de donnees, IA Python/FastAPI, tests
 
-## Captures d ecran
 
-Captures a ajouter plus tard :
-
-- Dashboard
-- Liste des membres
-- Details publication avec extraction IA
-- Page recommandations IA

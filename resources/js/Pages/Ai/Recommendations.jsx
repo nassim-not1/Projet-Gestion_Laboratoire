@@ -53,7 +53,7 @@ export default function Recommendations({ members, selectedMemberId, recommendat
                 </div>
                 <div className="mt-4 space-y-3">
                     {recommendations.map((recommendation) => (
-                        <div key={recommendation.member_id} className="rounded-lg border border-slate-200 p-4 transition hover:border-teal-200 hover:bg-teal-50/40">
+                        <div key={recommendation.member_id} className="rounded-lg border border-slate-200 p-4 transition hover:border-teal-200 hover:bg-teal-50/40 dark:border-slate-800 dark:hover:border-teal-800 dark:hover:bg-teal-950/30">
                             <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                                 <div>
                                     <p className="font-medium text-slate-950">{recommendation.name}</p>

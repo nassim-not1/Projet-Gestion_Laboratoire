@@ -42,8 +42,8 @@ export default function Index({ equipments, filters, statuses }) {
             </form>
 
             <div className="table-shell">
-                <table className="min-w-full divide-y divide-slate-200">
-                    <thead className="bg-slate-50">
+                <table className="data-table">
+                    <thead>
                         <tr>
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Equipement</th>
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Code</th>
@@ -52,9 +52,9 @@ export default function Index({ equipments, filters, statuses }) {
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody>
                         {equipments.data.map((equipment) => (
-                            <tr key={equipment.id} className="transition hover:bg-slate-50/80">
+                            <tr key={equipment.id} className="transition hover:bg-slate-50/80 dark:hover:bg-slate-800/60">
                                 <td className="px-4 py-3">
                                     <p className="font-medium text-slate-950">{equipment.name}</p>
                                     <p className="text-sm text-slate-500">{equipment.type} - {equipment.location || 'Sans localisation'}</p>

@@ -51,8 +51,8 @@ export default function Index({ members, filters, grades }) {
             </form>
 
             <div className="table-shell">
-                <table className="min-w-full divide-y divide-slate-200">
-                    <thead className="bg-slate-50">
+                <table className="data-table">
+                    <thead>
                         <tr>
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Membre</th>
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Grade</th>
@@ -61,9 +61,9 @@ export default function Index({ members, filters, grades }) {
                             <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody>
                         {members.data.map((member) => (
-                            <tr key={member.id} className="transition hover:bg-slate-50/80">
+                            <tr key={member.id} className="transition hover:bg-slate-50/80 dark:hover:bg-slate-800/60">
                                 <td className="px-4 py-3">
                                     <p className="font-medium text-slate-950">{member.first_name} {member.last_name}</p>
                                     <p className="text-sm text-slate-500">{member.email}</p>

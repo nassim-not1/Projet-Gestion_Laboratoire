@@ -48,11 +48,11 @@ export default function DeleteUserForm({ className = '' }) {
     return (
         <section className={`space-y-6 ${className}`}>
             <header>
-                <h2 className="text-lg font-semibold text-slate-950">
+                <h2 className="text-lg font-semibold text-slate-950 dark:text-white">
                     Suppression du compte
                 </h2>
 
-                <p className="mt-1 text-sm leading-6 text-slate-500">
+                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
                     Une fois le compte supprime, ses donnees associees sont supprimees definitivement.
                 </p>
             </header>
@@ -63,11 +63,11 @@ export default function DeleteUserForm({ className = '' }) {
 
             <Modal show={confirmingUserDeletion} onClose={closeModal}>
                 <form onSubmit={deleteUser} className="p-6">
-                    <h2 className="text-lg font-semibold text-slate-950">
+                    <h2 className="text-lg font-semibold text-slate-950 dark:text-white">
                         Confirmer la suppression du compte
                     </h2>
 
-                    <p className="mt-1 text-sm leading-6 text-slate-500">
+                    <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
                         Cette action est definitive. Saisissez votre mot de passe pour confirmer la suppression.
                     </p>
 

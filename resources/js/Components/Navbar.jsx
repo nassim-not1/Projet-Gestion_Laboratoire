@@ -12,7 +12,7 @@ export default function Navbar({ onMenuClick }) {
         .toUpperCase();
 
     return (
-        <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+        <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 shadow-sm shadow-slate-200/40 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 dark:shadow-black/20">
             <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-3">
                     <button
@@ -28,8 +28,8 @@ export default function Navbar({ onMenuClick }) {
                         </span>
                     </button>
                     <div>
-                        <p className="text-sm font-semibold text-slate-950">Digitalisation des activites de recherche</p>
-                        <p className="text-xs text-slate-500">Pilotage laboratoire et IA</p>
+                        <p className="text-sm font-semibold text-slate-950 dark:text-white">Digitalisation des activites de recherche</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Pilotage laboratoire et IA</p>
                     </div>
                 </div>
 
@@ -40,14 +40,14 @@ export default function Navbar({ onMenuClick }) {
                         <Dropdown.Trigger>
                             <button
                                 type="button"
-                                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-sm shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+                                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-sm shadow-sm shadow-slate-200/60 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:shadow-black/20 dark:hover:bg-slate-800"
                             >
-                                <span className="flex h-9 w-9 items-center justify-center rounded-md bg-teal-50 text-xs font-bold text-teal-800">
+                                <span className="flex h-9 w-9 items-center justify-center rounded-md bg-teal-50 text-xs font-bold text-teal-800 dark:bg-teal-950 dark:text-teal-200">
                                     {initials || 'U'}
                                 </span>
                                 <span className="hidden min-w-0 sm:block">
-                                    <span className="block truncate font-semibold text-slate-900">{user.name}</span>
-                                    <span className="block text-xs text-slate-500">{user.role}</span>
+                                    <span className="block truncate font-semibold text-slate-900 dark:text-white">{user.name}</span>
+                                    <span className="block text-xs text-slate-500 dark:text-slate-400">{user.role}</span>
                                 </span>
                             </button>
                         </Dropdown.Trigger>

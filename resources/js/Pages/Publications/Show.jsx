@@ -49,7 +49,7 @@ export default function Show({ publication }) {
                     <h2 className="text-lg font-semibold text-slate-950">Auteurs</h2>
                     <div className="mt-4 space-y-3">
                         {publication.authors.map((author) => (
-                            <Link key={author.id} href={route('members.show', author.id)} className="block rounded-lg border border-slate-200 p-3 text-sm transition hover:border-teal-200 hover:bg-teal-50/40">
+                            <Link key={author.id} href={route('members.show', author.id)} className="block rounded-lg border border-slate-200 p-3 text-sm transition hover:border-teal-200 hover:bg-teal-50/40 dark:border-slate-800 dark:hover:border-teal-800 dark:hover:bg-teal-950/30">
                                 <span className="font-medium text-slate-950">{author.first_name} {author.last_name}</span>
                                 <span className="block text-slate-500">Ordre : {author.pivot?.author_order || '-'}</span>
                             </Link>

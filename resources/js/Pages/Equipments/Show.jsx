@@ -97,8 +97,8 @@ export default function Show({ equipment, members, statuses }) {
                     </form>
 
                     <div className="mt-6 overflow-x-auto rounded-lg border border-slate-200">
-                        <table className="min-w-full divide-y divide-slate-200">
-                            <thead className="bg-slate-50">
+                        <table className="data-table">
+                            <thead>
                                 <tr>
                                     <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Membre</th>
                                     <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Date</th>
@@ -106,7 +106,7 @@ export default function Show({ equipment, members, statuses }) {
                                     <th className="px-4 py-3 text-left text-sm font-semibold text-slate-700">Statut</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-100 bg-white">
+                            <tbody>
                                 {equipment.reservations.map((reservation) => (
                                     <tr key={reservation.id}>
                                         <td className="px-4 py-3 text-sm text-slate-700">{reservation.member?.first_name} {reservation.member?.last_name}</td>

@@ -7,7 +7,7 @@ export default function TableActions({ showHref, editHref, deleteHref, canEdit =
             {showHref && (
                 <Link
                     href={showHref}
-                    className="btn-secondary min-h-0 px-3 py-1.5"
+                    className="btn-secondary min-h-9 px-3 py-1.5"
                 >
                     Voir
                 </Link>
@@ -15,7 +15,7 @@ export default function TableActions({ showHref, editHref, deleteHref, canEdit =
             {canEdit && editHref && (
                 <Link
                     href={editHref}
-                    className="btn-soft min-h-0 px-3 py-1.5"
+                    className="btn-soft min-h-9 px-3 py-1.5"
                 >
                     Modifier
                 </Link>
